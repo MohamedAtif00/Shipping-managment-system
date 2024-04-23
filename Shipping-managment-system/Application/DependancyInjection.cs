@@ -1,4 +1,6 @@
-﻿namespace Shipping_managment_system.Application
+﻿using Microsoft.AspNetCore.Authentication;
+
+namespace Shipping_managment_system.Application
 {
     public static class DependancyInjection
     {
@@ -8,6 +10,11 @@
                 cfg.RegisterServicesFromAssemblies(typeof(DependancyInjection).Assembly);
 
             });
+
+            services.AddSignalR();
+
+
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             return services;
         }

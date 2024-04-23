@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Shipping_managment_system.Application.Abstraction;
 using Shipping_managment_system.Application.DTO.JwtSetting;
+using Shipping_managment_system.Application.Service;
 using Shipping_managment_system.Domain.Abstraction;
 using Shipping_managment_system.Domain.Repository;
 using Shipping_managment_system.Infrastructure.Data;
@@ -74,6 +76,8 @@ namespace Shipping_managment_system.Infrastructure
             services.AddScoped<IShipmentRepository,ShipmentRepository>();
             services.AddScoped<ICargoRepository,CargoRepository>();
             services.AddScoped<IAddressRepository,AddressRepository>();
+            services.AddScoped<IRefreshTokenRepository,RefreshTokenRepository>();
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 
             return services;

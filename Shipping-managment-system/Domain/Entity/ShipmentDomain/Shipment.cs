@@ -6,7 +6,7 @@ namespace Shipping_managment_system.Domain.Entity.ShipmentDomain
 {
     public class Shipment : Entity<ShipmentId>
     {
-        public Shipment(ShipmentId id,AddressId startLocation,AddressId endLocation,CargoId cargoId,string title, string description, DateTime shipmentDate,Guid userId) : base(id)
+        public Shipment(ShipmentId id, AddressId startLocation, AddressId endLocation, CargoId cargoId, string title, string description, DateTime shipmentDate, Guid userId) : base(id)
         {
             StartLocation = startLocation;
             EndLocation = endLocation;

@@ -7,6 +7,7 @@ namespace Shipping_managment_system.Domain.Abstraction
         IShipmentRepository ShipmentRepository { get; }
         ICargoRepository CargoRepository { get; }
         IAddressRepository AddressRepository { get; }
+        IRefreshTokenRepository RefreshTokenRepository { get; }
 
         Task<int> save();
     }

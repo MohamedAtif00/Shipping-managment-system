@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shipping_managment_system.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Shipping_managment_system.Infrastructure.Data;
 namespace Shipping_managment_system.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240423031952_Add-RefreshToken")]
+    partial class AddRefreshToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,9 +239,6 @@ namespace Shipping_managment_system.Migrations
 
                     b.Property<double>("Lat")
                         .HasColumnType("float");
-
-                    b.Property<string>("LocationName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Lon")
                         .HasColumnType("float");

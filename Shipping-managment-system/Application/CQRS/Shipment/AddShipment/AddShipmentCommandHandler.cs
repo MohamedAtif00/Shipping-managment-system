@@ -6,7 +6,7 @@ using Shipping_managment_system.Domain.Entity.AddressDomain;
 using Shipping_managment_system.Domain.Entity.CargoDomain;
 using Shipping_managment_system.Domain.Entity.ShipmentDomain;
 using shipments = Shipping_managment_system.Domain.Entity.ShipmentDomain.Shipment;
-using Address = Shipping_managment_system.Domain.Entity.AddressDomain.Address;
+using Addresses = Shipping_managment_system.Domain.Entity.AddressDomain.Address;
 using Cargoo = Shipping_managment_system.Domain.Entity.CargoDomain.Cargo;
 
 namespace Shipping_managment_system.Application.CQRS.Shipment.AddShipment
@@ -49,8 +49,8 @@ namespace Shipping_managment_system.Application.CQRS.Shipment.AddShipment
                 await _unitOfWork.CargoRepository.Add(cargo);
 
                 // Create Addresses
-                var addressOne = Address.Create(request.StartLocation.State, request.StartLocation.City, request.StartLocation.Lat, request.StartLocation.Lon, request.StartLocation.IsoCode, request.StartLocation.HouseNumber, request.StartLocation.PostCode, request.StartLocation.Road, request.StartLocation.Village);
-                var addressTwo = Address.Create(request.EndLocation.State, request.EndLocation.City, request.EndLocation.Lat, request.EndLocation.Lon, request.EndLocation.IsoCode, request.EndLocation.HouseNumber, request.EndLocation.PostCode, request.EndLocation.Road, request.EndLocation.Village);
+                var addressOne = Addresses.Create(request.StartLocation.State, request.StartLocation.City, request.StartLocation.Lat, request.StartLocation.Lon, request.StartLocation.IsoCode, request.StartLocation.HouseNumber, request.StartLocation.PostCode, request.StartLocation.Road, request.StartLocation.Village,request.StartLocation.LocationName);
+                var addressTwo = Addresses.Create(request.EndLocation.State, request.EndLocation.City, request.EndLocation.Lat, request.EndLocation.Lon, request.EndLocation.IsoCode, request.EndLocation.HouseNumber, request.EndLocation.PostCode, request.EndLocation.Road, request.EndLocation.Village,request.EndLocation.LocationName);
 
                 // Add the addresses to the database
                 await _unitOfWork.AddressRepository.Add(addressOne);

@@ -5,7 +5,7 @@ namespace Shipping_managment_system.Domain.Entity.AddressDomain
 {
     public class Address : Entity<AddressId>
     {
-        public Address(AddressId id,string state, string city, double lat, double lon, string? isoCode, string? house_number, string? postCode, string? road, string? village) :base(id)
+        public Address(AddressId id, string state, string city, double lat, double lon, string? isoCode, string? house_number, string? postCode, string? road, string? village, string? locationName) : base(id)
         {
             State = state;
             City = city;
@@ -16,6 +16,7 @@ namespace Shipping_managment_system.Domain.Entity.AddressDomain
             PostCode = postCode;
             Road = road;
             Village = village;
+            LocationName = locationName;
         }
         public double Lat { get; private set; }
         public double Lon { get; private set; }
@@ -26,11 +27,12 @@ namespace Shipping_managment_system.Domain.Entity.AddressDomain
         public string? PostCode { get; private set; }
         public string? Road { get; private set; }
         public string? Village { get; private set; }
+        public string? LocationName { get; private set; }
 
 
-        public static Address Create(string state, string city, double lat, double lon, string? isoCode, string? house_number, string? postCode, string? road, string? village)
+        public static Address Create(string state, string city, double lat, double lon, string? isoCode, string? house_number, string? postCode, string? road, string? village,string? LocationName)
         {
-            return new(AddressId.CreateUnique(),state, city, lat, lon, isoCode, house_number, postCode, road, village);
+            return new(AddressId.CreateUnique(),state, city, lat, lon, isoCode, house_number, postCode, road, village,LocationName);
         }
 
 
